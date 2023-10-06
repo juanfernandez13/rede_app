@@ -25,13 +25,13 @@ class UserModel {
     AtividadeModel()
   ];
   List<Horarios> horarios = [
-    Horarios("Segunda-Feira", true, {"09":"00"}, {"17":"00"}),
-    Horarios("Terça-Feira", true, {"09":"00"}, {"17":"00"}),
-    Horarios("Quarta-Feira", true, {"09":"00"}, {"17":"00"}),
-    Horarios("Quinta-Feira", true, {"09":"00"}, {"17":"00"}),
-    Horarios("Sexta-Feira", true, {"09":"00"}, {"17":"00"}),
-    Horarios("Sábado", false, {"00":"00"}, {"00":"00"}),
-    Horarios("Domingo", false, {"00":"00"}, {"00":"00"}),
+    Horarios("Segunda-Feira", true, "9", "17"),
+    Horarios("Terça-Feira", true, "9", "17"),
+    Horarios("Quarta-Feira", true, "9", "17"),
+    Horarios("Quinta-Feira", true, "9", "17"),
+    Horarios("Sexta-Feira", true, "9", "17"),
+    Horarios("Sábado", false, "0", "0"),
+    Horarios("Domingo", false, "0", "0"),
 
   ];
   UserModel();

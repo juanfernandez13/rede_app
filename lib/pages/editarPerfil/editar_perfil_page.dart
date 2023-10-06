@@ -21,11 +21,12 @@ class _EditarPerfilState extends State<EditarPerfil> {
   TextEditingController administradorController = TextEditingController();
 
   void salvar() {
-    widget.user.nome = nomeController.text;
-    widget.user.bio = bioController.text;
-    widget.user.localizacao = localizacaoController.text;
-    widget.user.administrador = administradorController.text;
-    print(widget.user.nome);
+    setState(() {
+      widget.user.nome = nomeController.text;
+      widget.user.bio = bioController.text;
+      widget.user.localizacao = localizacaoController.text;
+      widget.user.administrador = administradorController.text;
+    });
     Navigator.pop(context);
   }
 
@@ -114,14 +115,14 @@ class _EditarPerfilState extends State<EditarPerfil> {
                       Container(
                         padding: const EdgeInsets.symmetric(
                             horizontal: 12, vertical: 4),
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Cores.azul, width: 1),
+                          borderRadius: BorderRadius.circular(20),
+                        ),
                         child: const Text(
                           "Adicionar",
                           style: TextStyle(
                               fontWeight: FontWeight.w600, fontSize: 14),
-                        ),
-                        decoration: BoxDecoration(
-                          border: Border.all(color: Cores.azul, width: 1),
-                          borderRadius: BorderRadius.circular(20),
                         ),
                       )
                     ],
@@ -141,7 +142,7 @@ class _EditarPerfilState extends State<EditarPerfil> {
                               TextField(
                                 controller: moderadorIndex,
                                 decoration: InputDecoration(
-                                    suffixIcon: Icon(
+                                    suffixIcon: const Icon(
                                       Icons.close_sharp,
                                       color: Colors.red,
                                     ),

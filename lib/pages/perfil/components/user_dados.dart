@@ -35,7 +35,7 @@ class _UserDadosState extends State<UserDados> {
 
 class CapaPerfil extends StatelessWidget {
   final UserModel user;
-  final heightCapa;
+  final double heightCapa;
   const CapaPerfil({super.key, required this.user, required this.heightCapa});
 
   @override
@@ -51,7 +51,7 @@ class CapaPerfil extends StatelessWidget {
 
 class PerfilFoto extends StatelessWidget {
   final UserModel user;
-  final height;
+  final double height;
   const PerfilFoto({super.key, required this.user, required this.height});
 
   @override
@@ -103,7 +103,6 @@ class PerfilFoto extends StatelessWidget {
 class DadosPerfil extends StatelessWidget {
   final UserModel user;
   const DadosPerfil({super.key, required this.user});
-
   @override
   Widget build(BuildContext context) {
     return Padding(

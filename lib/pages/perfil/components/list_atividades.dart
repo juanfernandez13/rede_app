@@ -10,95 +10,89 @@ class ListAtividades extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
-    return ListView.builder(
-      itemCount: user.atividades.length,
-      itemBuilder: (_, index) {
-        return Container(
-          margin: const EdgeInsets.symmetric(vertical: 16, horizontal: 8),
-          child: Column(
-            children: [
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  CircleAvatar(
-                    radius: 22,
-                    backgroundImage: NetworkImage(user.user_path),
-                  ),
-                  const SizedBox(
-                    width: 12,
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SizedBox(
-                        width: width * 0.8,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              user.nome,
-                              style: FontStyles.grosso16(),
-                            ),
-                            const SizedBox(
-                              width: 2,
-                            ),
-                            Icones.seloAmarelo(),
-                            const SizedBox(
-                              width: 4,
-                            ),
-                            Text(
-                              "${user.conta} • ${user.atividades[index].data}",
-                              style: FontStyles.finoCinza12(),
-                            ),
-                            const SizedBox(
-                              width: 20,
-                            ),
-                            Icon(
-                              Icons.keyboard_arrow_down,
-                              size: 16,
-                            ),
-                          ],
-                        ),
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          SizedBox(
-                            width: width * 0.75,
-                            child: Text(user.atividades[index].texto_atividade),
+    return Padding(
+      padding: const EdgeInsets.only(top: 16),
+      child: ListView.builder(
+        itemCount: user.atividades.length,
+        itemBuilder: (_, index) {
+          return Container(
+            margin: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
+            child: Column(
+              children: [
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    CircleAvatar(
+                      radius: 22,
+                      backgroundImage: NetworkImage(user.user_path),
+                    ),
+                    const SizedBox(
+                      width: 12,
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(
+                          width: width * 0.8,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                user.nome,
+                                style: FontStyles.grosso16(),
+                              ),
+                              Icones.seloAmarelo(),
+                              Espaco.width4(),
+                              Text(
+                                "${user.conta} • ${user.atividades[index].data}",
+                                style: FontStyles.finoCinza12(),
+                              ),
+                              Espaco.width12(),
+                              const Icon(
+                                Icons.keyboard_arrow_down,
+                                size: 16,
+                              ),
+                            ],
                           ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 28,
-                        width: width * 0.8,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            Icon(
-                              Icons.chat_bubble_outline,
-                              size: 16,
-                              color: Cores.cinzaEscuro,
-                            ),
                             SizedBox(
-                              width: 8,
+                              width: width * 0.75,
+                              child: Text(user.atividades[index].texto_atividade),
                             ),
-                            Text(
-                              user.atividades[index].comentarios.length
-                                  .toString(),
-                              style: TextStyle(color: Cores.cinzaEscuro),
-                            )
                           ],
                         ),
-                      )
-                    ],
-                  ),
-                ],
-              ),
-            ],
-          ),
-        );
-      },
+                        SizedBox(
+                          height: 28,
+                          width: width * 0.8,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Icon(
+                                Icons.chat_bubble_outline,
+                                size: 16,
+                                color: Cores.cinzaEscuro,
+                              ),
+                              Espaco.width8(),
+                              Text(
+                                user.atividades[index].comentarios.length
+                                    .toString(),
+                                style: TextStyle(color: Cores.cinzaEscuro),
+                              )
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          );
+        },
+      ),
     );
   }
 }

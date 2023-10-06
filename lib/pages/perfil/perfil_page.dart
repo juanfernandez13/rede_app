@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rede/constants/constantes.dart';
 import 'package:rede/pages/perfil/components/list_atividades.dart';
-import 'package:rede/pages/perfil/components/sobre.dart';
+import 'package:rede/pages/perfil/components/pageview/sobre.dart';
 import 'package:rede/styles/font_styles.dart';
 import 'package:rede/pages/perfil/components/user_dados.dart';
 import 'components/bottom_navigator.dart';
@@ -29,7 +29,7 @@ class _PerfilPageState extends State<PerfilPage> {
         child: Scaffold(
       body: Column(
         children: [
-          UserDados(),
+          const UserDados(),
           Container(
             padding: const EdgeInsets.only(left: 16, right: 16, bottom: 12),
             decoration: BoxDecoration(
@@ -67,12 +67,12 @@ class _PerfilPageState extends State<PerfilPage> {
             onPageChanged: (value) => setState(() => pageIndex = value),
             controller: pageController,
             children: [
-              Container(
+              SizedBox(
                 child: ListAtividades(),
               ),
-              SobreMenu(),
-              Container(
-                color: Colors.black,
+              const SobreMenu(),
+              const SizedBox(
+                child: Text("Sem Design"),
               )
             ],
           )),
