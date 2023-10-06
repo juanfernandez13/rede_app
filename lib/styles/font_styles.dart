@@ -7,20 +7,19 @@ class FontStyles {
       color: condicao ? Cores.azul : Cores.cinza,
       fontWeight: FontWeight.w600);
 
-  static TextStyle editar() =>
-      TextStyle(fontSize: 16, fontWeight: FontWeight.w600);
-
-  static TextStyle nome() => TextStyle(
+  static TextStyle grosso16() => const TextStyle(
         fontSize: 16,
         fontWeight: FontWeight.w600,
       );
-  static TextStyle bio() => TextStyle(
+  static TextStyle fino16() => const TextStyle(
         fontSize: 16,
         fontWeight: FontWeight.w400,
       );
-  static TextStyle subDadosPerfil() => TextStyle(
+  static TextStyle finoCinza12() => TextStyle(
         fontSize: 12,
         color: Cores.cinza,
         fontWeight: FontWeight.w400,
       );
+  static TextStyle fino14() =>
+      TextStyle(color: Cores.cinza, fontWeight: FontWeight.w400, fontSize: 14);
 }

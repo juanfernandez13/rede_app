@@ -24,7 +24,9 @@ class ListAtividades extends StatelessWidget {
                     radius: 22,
                     backgroundImage: NetworkImage(user.user_path),
                   ),
-                  const SizedBox(width: 12,),
+                  const SizedBox(
+                    width: 12,
+                  ),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -35,18 +37,18 @@ class ListAtividades extends StatelessWidget {
                           children: [
                             Text(
                               user.nome,
-                              style: FontStyles.nome(),
+                              style: FontStyles.grosso16(),
                             ),
                             const SizedBox(
                               width: 2,
                             ),
-                            Icones.seloPequeno(),
+                            Icones.seloAmarelo(),
                             const SizedBox(
                               width: 4,
                             ),
                             Text(
                               "${user.conta} • ${user.atividades[index].data}",
-                              style: FontStyles.subDadosPerfil(),
+                              style: FontStyles.finoCinza12(),
                             ),
                             const SizedBox(
                               width: 20,
@@ -69,13 +71,23 @@ class ListAtividades extends StatelessWidget {
                       ),
                       SizedBox(
                         height: 28,
-                        width: width*0.8,
+                        width: width * 0.8,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
-                            Icon(Icons.chat_bubble_outline, size: 16,color: Cores.cinzaEscuro,),
-                            SizedBox(width: 8,),
-                            Text(user.atividades[index].comentarios.length.toString(), style: TextStyle(color: Cores.cinzaEscuro),)
+                            Icon(
+                              Icons.chat_bubble_outline,
+                              size: 16,
+                              color: Cores.cinzaEscuro,
+                            ),
+                            SizedBox(
+                              width: 8,
+                            ),
+                            Text(
+                              user.atividades[index].comentarios.length
+                                  .toString(),
+                              style: TextStyle(color: Cores.cinzaEscuro),
+                            )
                           ],
                         ),
                       )

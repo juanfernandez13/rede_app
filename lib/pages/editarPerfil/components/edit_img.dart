@@ -14,7 +14,7 @@ class EditImg extends StatelessWidget {
       children: [
         Text(
           "Imagem de perfil",
-          style: FontStyles.nome(),
+          style: FontStyles.grosso16(),
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,

@@ -6,6 +6,11 @@ class Cores {
   static Color cinzaEscuro = const Color(0xff858585);
 }
 
+class Tempo {
+  static List<int> horas() => List.generate(24, (i) => i);
+  static List<int> minutos() => List.generate(61, (i) => i);
+}
+
 class Espaco {
   static width4() => const SizedBox(width: 4);
   static width8() => const SizedBox(width: 8);

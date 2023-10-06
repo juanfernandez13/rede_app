@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rede/constants/constantes.dart';
 import 'package:rede/pages/perfil/components/list_atividades.dart';
+import 'package:rede/pages/perfil/components/sobre.dart';
 import 'package:rede/styles/font_styles.dart';
 import 'package:rede/pages/perfil/components/user_dados.dart';
 import 'components/bottom_navigator.dart';
@@ -17,7 +18,7 @@ class _PerfilPageState extends State<PerfilPage> {
   int pageIndex = 0;
   void trocarPageView(int page) {
     pageController.animateToPage(page,
-        duration: const Duration(milliseconds: 500), curve: Curves.easeIn);
+        duration: const Duration(milliseconds: 400), curve: Curves.easeIn);
     pageIndex = page;
     setState(() {});
   }
@@ -69,9 +70,7 @@ class _PerfilPageState extends State<PerfilPage> {
               Container(
                 child: ListAtividades(),
               ),
-              Container(
-                color: Colors.red,
-              ),
+              SobreMenu(),
               Container(
                 color: Colors.black,
               )

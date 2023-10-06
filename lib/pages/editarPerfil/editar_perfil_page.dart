@@ -59,7 +59,7 @@ class _EditarPerfilState extends State<EditarPerfil> {
                     )),
                 Text(
                   "Editar perfil",
-                  style: FontStyles.nome(),
+                  style: FontStyles.grosso16(),
                 ),
                 TextButton(
                   onPressed: () => salvar(),
@@ -107,31 +107,50 @@ class _EditarPerfilState extends State<EditarPerfil> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("Moderadores", style: FontStyles.nome(),),
-                      Container(padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4), child: const Text("Adicionar", style: TextStyle(fontWeight: FontWeight.w600, fontSize: 14),), decoration: BoxDecoration(
-                        border: Border.all(color: Cores.azul, width: 1),
-                        borderRadius: BorderRadius.circular(20),
-                      ),)
+                      Text(
+                        "Moderadores",
+                        style: FontStyles.grosso16(),
+                      ),
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 12, vertical: 4),
+                        child: const Text(
+                          "Adicionar",
+                          style: TextStyle(
+                              fontWeight: FontWeight.w600, fontSize: 14),
+                        ),
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Cores.azul, width: 1),
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                      )
                     ],
                   ),
                   Espaco.height8(),
                   SizedBox(
                     height: 200,
-                    child: ListView.builder(itemCount: widget.user.moderadores.length, itemBuilder: (_, index) {
-                      TextEditingController moderadorIndex = TextEditingController(text: widget.user.moderadores[index]);
-                      return Column(
-                        children: [
-                          Espaco.height8(),
-                          TextField(
-                            controller: moderadorIndex,
-                            decoration: InputDecoration(
-                              suffixIcon: Icon(Icons.close_sharp, color: Colors.red,),
-                                border: InputStyles.editDadosInput()),
-                          ),
-                          Espaco.height8(),
-                        ],
-                      );
-                    }),
+                    child: ListView.builder(
+                        itemCount: widget.user.moderadores.length,
+                        itemBuilder: (_, index) {
+                          TextEditingController moderadorIndex =
+                              TextEditingController(
+                                  text: widget.user.moderadores[index]);
+                          return Column(
+                            children: [
+                              Espaco.height8(),
+                              TextField(
+                                controller: moderadorIndex,
+                                decoration: InputDecoration(
+                                    suffixIcon: Icon(
+                                      Icons.close_sharp,
+                                      color: Colors.red,
+                                    ),
+                                    border: InputStyles.editDadosInput()),
+                              ),
+                              Espaco.height8(),
+                            ],
+                          );
+                        }),
                   )
                 ],
               ),
@@ -149,19 +168,20 @@ Widget label(String campo) {
       Espaco.height20(),
       Text(
         campo,
-        style: FontStyles.nome(),
+        style: FontStyles.grosso16(),
       ),
       Espaco.height8(),
     ],
   );
 }
+
 Widget labelModerador(String campo) {
   return Column(
     children: [
       Espaco.height20(),
       Text(
         campo,
-        style: FontStyles.nome(),
+        style: FontStyles.grosso16(),
       ),
       Espaco.height8(),
     ],

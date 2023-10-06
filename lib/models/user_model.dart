@@ -1,3 +1,5 @@
+import 'package:rede/models/horariosModel.dart';
+
 import 'atividade_model.dart';
 
 class UserModel {
@@ -21,6 +23,16 @@ class UserModel {
     AtividadeModel(),
     AtividadeModel(),
     AtividadeModel()
+  ];
+  List<Horarios> horarios = [
+    Horarios("Segunda-Feira", true, {"09":"00"}, {"17":"00"}),
+    Horarios("Terça-Feira", true, {"09":"00"}, {"17":"00"}),
+    Horarios("Quarta-Feira", true, {"09":"00"}, {"17":"00"}),
+    Horarios("Quinta-Feira", true, {"09":"00"}, {"17":"00"}),
+    Horarios("Sexta-Feira", true, {"09":"00"}, {"17":"00"}),
+    Horarios("Sábado", false, {"00":"00"}, {"00":"00"}),
+    Horarios("Domingo", false, {"00":"00"}, {"00":"00"}),
+
   ];
   UserModel();
 }

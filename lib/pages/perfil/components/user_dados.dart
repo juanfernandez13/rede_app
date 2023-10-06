@@ -69,21 +69,27 @@ class PerfilFoto extends StatelessWidget {
               height: 100,
               width: 100,
               decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                image: DecorationImage(image: NetworkImage(user.user_path), fit: BoxFit.cover),
-                border: Border.all(color: Colors.white, width: 4)
-              ),
+                  shape: BoxShape.circle,
+                  image: DecorationImage(
+                      image: NetworkImage(user.user_path), fit: BoxFit.cover),
+                  border: Border.all(color: Colors.white, width: 4)),
             ),
             InkWell(
-              onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => EditarPerfil(user: user,))),
+              onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (_) => EditarPerfil(
+                            user: user,
+                          ))),
               child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                 decoration: BoxDecoration(
                     border: Border.all(color: Cores.azul, width: 1),
                     borderRadius: BorderRadius.circular(20)),
                 child: Text(
                   "Editar dados",
-                  style: FontStyles.editar(),
+                  style: FontStyles.grosso16(),
                 ),
               ),
             )
@@ -106,15 +112,17 @@ class DadosPerfil extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const SizedBox(height: 200,),
+          const SizedBox(
+            height: 200,
+          ),
           Text(
             user.nome,
-            style: FontStyles.nome(),
+            style: FontStyles.grosso16(),
           ),
           Espaco.height4(),
           Text(
             user.bio,
-            style: FontStyles.bio(),
+            style: FontStyles.fino16(),
           ),
           Espaco.height16(),
           Row(
@@ -123,12 +131,15 @@ class DadosPerfil extends StatelessWidget {
               const SizedBox(width: 4),
               Text(
                 user.localizacao,
-                style: FontStyles.subDadosPerfil(),
+                style: FontStyles.finoCinza12(),
               ),
               const SizedBox(width: 12),
               Icones.iconBio(Icons.calendar_month),
               const SizedBox(width: 4),
-              Text("Entrou em ${user.dataPrimeiroAcesso}", style: FontStyles.subDadosPerfil(),)
+              Text(
+                "Entrou em ${user.dataPrimeiroAcesso}",
+                style: FontStyles.finoCinza12(),
+              )
             ],
           ),
         ],
