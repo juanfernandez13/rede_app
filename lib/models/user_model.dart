@@ -1,11 +1,11 @@
-import 'package:rede/models/horariosModel.dart';
+import 'package:rede/models/horarios_model.dart';
 
 import 'atividade_model.dart';
 
 class UserModel {
-  String capa_path =
+  String capaPath =
       "https://meulugar.quintoandar.com.br/wp-content/uploads/2023/04/Cidade-Administrativa-de-Minas-Gerais.jpg";
-  String user_path =
+  String fotoPath =
       "https://diariodocomercio.com.br/wp-content/uploads/2022/06/recuperacao-fiscal-estado-mg-2.jpg";
   String nome = "Cidade ADM de MG";
   String conta = "@cidadeadm";
@@ -32,7 +32,6 @@ class UserModel {
     Horarios("Sexta-Feira", true, "9", "17"),
     Horarios("Sábado", false, "0", "0"),
     Horarios("Domingo", false, "0", "0"),
-
   ];
   UserModel();
 }

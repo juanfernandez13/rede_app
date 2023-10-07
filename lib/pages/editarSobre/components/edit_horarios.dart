@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rede/constants/constantes.dart';
 import 'package:rede/models/user_model.dart';
-import 'package:rede/pages/editarSobre/edit_sobre_page.dart';
 import 'package:rede/styles/font_styles.dart';
 
 class EditHorarios extends StatefulWidget {
@@ -42,7 +41,7 @@ class _EditHorariosState extends State<EditHorarios> {
                           border: Border.all(color: Cores.cinza)),
                       child: Text(hoje.abrirHorario, style: FontStyles.fino16()),
                     ),
-                    Text("Às"),
+                    const Text("Às"),
                         Container(
                       margin: const EdgeInsets.symmetric(vertical: 4, horizontal: 12),
                       width: width * 0.15,

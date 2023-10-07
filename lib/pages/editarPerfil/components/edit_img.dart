@@ -23,9 +23,9 @@ class EditImg extends StatelessWidget {
               children: [
                 CircleAvatar(
                   radius: 48,
-                  backgroundImage: NetworkImage(user.user_path),
+                  backgroundImage: NetworkImage(user.fotoPath),
                 ),
-                CircleAvatar(
+                const CircleAvatar(
                   radius: 48,
                   backgroundColor: Colors.black54,
                   child: Center(

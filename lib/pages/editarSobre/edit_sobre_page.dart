@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:rede/constants/constantes.dart';
 import 'package:rede/models/user_model.dart';
 import 'package:rede/pages/editarSobre/card_edificios.dart';
-import 'package:rede/repositories/edificio_repository.dart';
 import 'package:rede/styles/font_styles.dart';
-import 'package:rede/styles/icones_styles.dart';
 import 'package:rede/styles/input_styles.dart';
 
 import 'components/edit_horarios.dart';

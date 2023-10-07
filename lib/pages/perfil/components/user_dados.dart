@@ -49,7 +49,7 @@ class CapaPerfil extends StatelessWidget {
       height: heightCapa,
       decoration: BoxDecoration(
           image: DecorationImage(
-              image: NetworkImage(user.capa_path), fit: BoxFit.cover)),
+              image: NetworkImage(user.capaPath), fit: BoxFit.cover)),
     );
   }
 }
@@ -81,7 +81,7 @@ class PerfilFoto extends StatelessWidget {
               decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   image: DecorationImage(
-                      image: NetworkImage(user.user_path), fit: BoxFit.cover),
+                      image: NetworkImage(user.fotoPath), fit: BoxFit.cover),
                   border: Border.all(color: Colors.white, width: 4)),
             ),
             page == 0
@@ -104,7 +104,7 @@ class PerfilFoto extends StatelessWidget {
                       ),
                     ),
                   )
-                : SizedBox(),
+                : const SizedBox(),
           ],
         ),
       )),

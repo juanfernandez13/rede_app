@@ -24,7 +24,7 @@ class ListAtividades extends StatelessWidget {
                   children: [
                     CircleAvatar(
                       radius: 22,
-                      backgroundImage: NetworkImage(user.user_path),
+                      backgroundImage: NetworkImage(user.fotoPath),
                     ),
                     const SizedBox(
                       width: 12,
@@ -60,7 +60,8 @@ class ListAtividades extends StatelessWidget {
                           children: [
                             SizedBox(
                               width: width * 0.75,
-                              child: Text(user.atividades[index].texto_atividade),
+                              child:
+                                  Text(user.atividades[index].textoAtividade),
                             ),
                           ],
                         ),

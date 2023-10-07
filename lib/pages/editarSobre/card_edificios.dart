@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:rede/constants/constantes.dart';
 import 'package:rede/repositories/edificio_repository.dart';
@@ -28,7 +27,7 @@ class _CardEdificioListState extends State<CardEdificioList> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               CircleAvatar(
-                backgroundImage: NetworkImage(edificio.foto_path),
+                backgroundImage: NetworkImage(edificio.fotoPath),
               ),
               Espaco.width16(),
               Column(

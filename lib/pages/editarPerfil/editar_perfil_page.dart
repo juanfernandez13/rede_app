@@ -133,11 +133,11 @@ class _EditarPerfilState extends State<EditarPerfil> {
                                 ),
                                 actions: [
                                   TextButton(
-                                      style: ButtonStyle(
+                                      style: const ButtonStyle(
                                         backgroundColor: MaterialStatePropertyAll(Colors.red),
                                       ),
                                       onPressed: () => Navigator.pop(context),
-                                      child: Text("Desistir", style: TextStyle(color: Colors.white),)),
+                                      child: const Text("Desistir", style: TextStyle(color: Colors.white),)),
                                   TextButton(
                                       onPressed: () {
                                         widget.user.moderadores
@@ -147,7 +147,7 @@ class _EditarPerfilState extends State<EditarPerfil> {
                                         });
                                         Navigator.pop(context);
                                       },
-                                      child: Text("Cadastrar")),
+                                      child: const Text("Cadastrar")),
                                 ],
                               );
                             }),
@@ -191,7 +191,7 @@ class _EditarPerfilState extends State<EditarPerfil> {
                                                   moderadorIndex.text);
                                         });
                                       },
-                                      icon: Icon(
+                                      icon: const Icon(
                                         Icons.close_sharp,
                                         color: Colors.red,
                                       ),

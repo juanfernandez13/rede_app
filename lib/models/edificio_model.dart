@@ -1,15 +1,14 @@
 class EdificioModel {
-  String foto_path = "";
+  String fotoPath = "";
   String nome = "";
   String conta = "";
   String bio = "";
   String adm = "";
 
   EdificioModel(
-      {required this.foto_path,
+      {required this.fotoPath,
       required this.nome,
       required this.conta,
       required this.bio,
-      required this.adm
-      });
+      required this.adm});
 }

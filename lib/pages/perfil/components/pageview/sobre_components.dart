@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rede/constants/constantes.dart';
-import 'package:rede/models/edificioModel.dart';
-import 'package:rede/models/horariosModel.dart';
+import 'package:rede/models/edificio_model.dart';
 import 'package:rede/models/user_model.dart';
 import 'package:rede/repositories/edificio_repository.dart';
 import 'package:rede/styles/font_styles.dart';
@@ -31,7 +30,7 @@ class CardEdificio extends StatelessWidget {
         children: [
           CircleAvatar(
             radius: 22,
-            backgroundImage: NetworkImage(edificio.foto_path),
+            backgroundImage: NetworkImage(edificio.fotoPath),
           ),
           Espaco.width8(),
           Column(

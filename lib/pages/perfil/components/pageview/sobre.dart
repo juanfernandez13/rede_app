@@ -45,7 +45,7 @@ class _SobreMenuState extends State<SobreMenu> {
               style: FontStyles.grosso16(),
             ),
             Espaco.height8(),
-            RowInfo(Icons.location_pin,
+            rowInfo(Icons.location_pin,
                 "São Jorge 2ª Seção, Belo Horizonte - MG, 30451-102"),
                 Espaco.height16(),
             Text(
@@ -67,7 +67,7 @@ class _SobreMenuState extends State<SobreMenu> {
               ],
             ),
             Espaco.height8(),
-            RowInfo(Icons.email, "edificiosul@governomg.com.br"),
+            rowInfo(Icons.email, "edificiosul@governomg.com.br"),
           ],
         ),
       ),
@@ -75,7 +75,7 @@ class _SobreMenuState extends State<SobreMenu> {
   }
 }
 
-Widget RowInfo(IconData icone, String info) {
+Widget rowInfo(IconData icone, String info) {
   return Row(
     children: [
       Icon(
