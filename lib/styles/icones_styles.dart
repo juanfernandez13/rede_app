@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:rede/constants/constantes.dart';
 
 class Icones {
-  static Icon iconBio(IconData icone) => Icon(
+  static Icon icone(IconData icone) => Icon(
         icone,
         size: 15,
         color: Cores.cinza,

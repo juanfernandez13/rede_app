@@ -6,7 +6,8 @@ import 'package:rede/styles/font_styles.dart';
 import 'package:rede/styles/icones_styles.dart';
 
 class UserDados extends StatefulWidget {
-  const UserDados({super.key});
+  final int page;
+  const UserDados({super.key, required this.page});
 
   @override
   State<UserDados> createState() => _UserDadosState();
@@ -25,7 +26,11 @@ class _UserDadosState extends State<UserDados> {
             user: user,
             heightCapa: heightSize * 0.18,
           ),
-          PerfilFoto(user: user, height: heightSize * 0.36),
+          PerfilFoto(
+            user: user,
+            height: heightSize * 0.36,
+            page: widget.page,
+          ),
           DadosPerfil(user: user)
         ],
       ),
@@ -52,7 +57,12 @@ class CapaPerfil extends StatelessWidget {
 class PerfilFoto extends StatelessWidget {
   final UserModel user;
   final double height;
-  const PerfilFoto({super.key, required this.user, required this.height});
+  final int page;
+  const PerfilFoto(
+      {super.key,
+      required this.user,
+      required this.height,
+      required this.page});
 
   @override
   Widget build(BuildContext context) {
@@ -74,25 +84,27 @@ class PerfilFoto extends StatelessWidget {
                       image: NetworkImage(user.user_path), fit: BoxFit.cover),
                   border: Border.all(color: Colors.white, width: 4)),
             ),
-            InkWell(
-              onTap: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (_) => EditarPerfil(
-                            user: user,
-                          ))),
-              child: Container(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                decoration: BoxDecoration(
-                    border: Border.all(color: Cores.azul, width: 1),
-                    borderRadius: BorderRadius.circular(20)),
-                child: Text(
-                  "Editar dados",
-                  style: FontStyles.grosso16(),
-                ),
-              ),
-            )
+            page == 0
+                ? InkWell(
+                    onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (_) => EditarPerfil(
+                                  user: user,
+                                ))),
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 16, vertical: 8),
+                      decoration: BoxDecoration(
+                          border: Border.all(color: Cores.azul, width: 1),
+                          borderRadius: BorderRadius.circular(20)),
+                      child: Text(
+                        "Editar dados",
+                        style: FontStyles.grosso16(),
+                      ),
+                    ),
+                  )
+                : SizedBox(),
           ],
         ),
       )),
@@ -126,14 +138,14 @@ class DadosPerfil extends StatelessWidget {
           Espaco.height16(),
           Row(
             children: [
-              Icones.iconBio(Icons.location_pin),
+              Icones.icone(Icons.location_pin),
               const SizedBox(width: 4),
               Text(
                 user.localizacao,
                 style: FontStyles.finoCinza12(),
               ),
               const SizedBox(width: 12),
-              Icones.iconBio(Icons.calendar_month),
+              Icones.icone(Icons.calendar_month),
               const SizedBox(width: 4),
               Text(
                 "Entrou em ${user.dataPrimeiroAcesso}",

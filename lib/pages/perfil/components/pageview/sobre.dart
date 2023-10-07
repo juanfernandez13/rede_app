@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:rede/constants/constantes.dart';
-import 'package:rede/models/edificioModel.dart';
-import 'package:rede/models/horariosModel.dart';
 import 'package:rede/models/user_model.dart';
 import 'package:rede/pages/editarSobre/edit_sobre_page.dart';
 import 'package:rede/pages/perfil/components/pageview/sobre_components.dart';
-import 'package:rede/repositories/edificio_repository.dart';
 import 'package:rede/styles/font_styles.dart';
-import 'package:rede/styles/icones_styles.dart';
 
 class SobreMenu extends StatefulWidget {
   const SobreMenu({super.key});
@@ -26,7 +22,7 @@ class _SobreMenuState extends State<SobreMenu> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const ButtonEditHorarios(),
+            ButtonEditHorarios(user: user,),
             Espaco.height20(),
             Text(
               "Horário de atendimento",
@@ -51,6 +47,7 @@ class _SobreMenuState extends State<SobreMenu> {
             Espaco.height8(),
             RowInfo(Icons.location_pin,
                 "São Jorge 2ª Seção, Belo Horizonte - MG, 30451-102"),
+                Espaco.height16(),
             Text(
               "Contato",
               style: FontStyles.grosso16(),
@@ -96,13 +93,14 @@ Widget RowInfo(IconData icone, String info) {
 }
 
 class ButtonEditHorarios extends StatelessWidget {
-  const ButtonEditHorarios({super.key});
+  final UserModel user;
+  const ButtonEditHorarios({super.key, required this.user});
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () => Navigator.push(
-          context, MaterialPageRoute(builder: (_) => EditSobrePage())),
+          context, MaterialPageRoute(builder: (_) => EditSobrePage(user:user,))),
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         decoration: BoxDecoration(

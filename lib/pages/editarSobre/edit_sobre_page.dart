@@ -1,15 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:rede/constants/constantes.dart';
+import 'package:rede/models/user_model.dart';
+import 'package:rede/pages/editarSobre/card_edificios.dart';
+import 'package:rede/repositories/edificio_repository.dart';
 import 'package:rede/styles/font_styles.dart';
+import 'package:rede/styles/icones_styles.dart';
+import 'package:rede/styles/input_styles.dart';
+
+import 'components/edit_horarios.dart';
 
 class EditSobrePage extends StatefulWidget {
-  const EditSobrePage({super.key});
+  final UserModel user;
+  const EditSobrePage({super.key, required this.user});
 
   @override
   State<EditSobrePage> createState() => _EditSobrePageState();
 }
 
 class _EditSobrePageState extends State<EditSobrePage> {
+  TextEditingController whatsappController =
+      TextEditingController(text: "+55 15 91234-5678");
+  TextEditingController localizacaoController =
+      TextEditingController(text: "São Jorge 2ª Seção, Belo Horizonte - MG, 30451-102");
+  TextEditingController emailController =
+      TextEditingController(text: "edificiosul@governomg.com.br");
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -44,7 +58,65 @@ class _EditSobrePageState extends State<EditSobrePage> {
                 ],
               ),
               Espaco.height8(),
-              Text("Horário de atendimento", style: FontStyles.grosso16(),)
+              Text(
+                "Horário de atendimento",
+                style: FontStyles.grosso16(),
+              ),
+              Espaco.height12(),
+              EditHorarios(
+                user: widget.user,
+              ),
+              Espaco.height20(),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text("Edifícios", style: FontStyles.grosso16()),
+                  Container(
+                    padding:
+                        const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        border: Border.all(color: Cores.azul)),
+                    child: Text("Adicionar", style: FontStyles.grosso14()),
+                  )
+                ],
+              ),
+              Espaco.height8(),
+              const CardEdificioList(),
+              Espaco.height20(),
+              Text(
+                "Localização",
+                style: FontStyles.grosso16(),
+              ),
+              Espaco.height8(),
+              TextField(
+                controller: localizacaoController,
+                decoration:
+                    InputDecoration(border: InputStyles.editDadosInput()),
+              ),
+              Espaco.height20(),
+              Text(
+                "Whatsapp",
+                style: FontStyles.grosso16(),
+              ),
+              Espaco.height8(),
+              TextField(
+                controller: whatsappController,
+                decoration:
+                    InputDecoration(border: InputStyles.editDadosInput()),
+              ),
+              Espaco.height20(),
+              Text(
+                "E-mail",
+                style: FontStyles.grosso16(),
+              ),
+              Espaco.height8(),
+              TextField(
+                controller: emailController,
+                decoration:
+                    InputDecoration(border: InputStyles.editDadosInput()),
+              ),
+              Espaco.height20()
             ],
           ),
         ),
@@ -52,20 +124,4 @@ class _EditSobrePageState extends State<EditSobrePage> {
     ));
   }
 }
-class EditHorarios extends StatefulWidget {
-  const EditHorarios({super.key});
 
-  @override
-  State<EditHorarios> createState() => _EditHorariosState();
-}
-
-class _EditHorariosState extends State<EditHorarios> {
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        
-      ],
-    );
-  }
-}

@@ -7,8 +7,8 @@ import 'package:rede/styles/input_styles.dart';
 import 'components/edit_img.dart';
 
 class EditarPerfil extends StatefulWidget {
-  UserModel user;
-  EditarPerfil({super.key, required this.user});
+  final UserModel user;
+  const EditarPerfil({super.key, required this.user});
 
   @override
   State<EditarPerfil> createState() => _EditarPerfilState();
@@ -112,17 +112,57 @@ class _EditarPerfilState extends State<EditarPerfil> {
                         "Moderadores",
                         style: FontStyles.grosso16(),
                       ),
-                      Container(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 12, vertical: 4),
-                        decoration: BoxDecoration(
-                          border: Border.all(color: Cores.azul, width: 1),
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        child: const Text(
-                          "Adicionar",
-                          style: TextStyle(
-                              fontWeight: FontWeight.w600, fontSize: 14),
+                      InkWell(
+                        onTap: () => showDialog(
+                            context: context,
+                            builder: (BuildContext bc) {
+                              TextEditingController moderadorController =
+                                  TextEditingController();
+                              return AlertDialog(
+                                title: Center(
+                                    child: Text(
+                                  "Cadastrar moderador",
+                                  style: FontStyles.grosso16(),
+                                )),
+                                content: Wrap(
+                                  children: [
+                                    TextField(
+                                      controller: moderadorController,
+                                    )
+                                  ],
+                                ),
+                                actions: [
+                                  TextButton(
+                                      style: ButtonStyle(
+                                        backgroundColor: MaterialStatePropertyAll(Colors.red),
+                                      ),
+                                      onPressed: () => Navigator.pop(context),
+                                      child: Text("Desistir", style: TextStyle(color: Colors.white),)),
+                                  TextButton(
+                                      onPressed: () {
+                                        widget.user.moderadores
+                                            .add(moderadorController.text);
+                                        setState(() {
+                                          
+                                        });
+                                        Navigator.pop(context);
+                                      },
+                                      child: Text("Cadastrar")),
+                                ],
+                              );
+                            }),
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 12, vertical: 4),
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Cores.azul, width: 1),
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          child: const Text(
+                            "Adicionar",
+                            style: TextStyle(
+                                fontWeight: FontWeight.w600, fontSize: 14),
+                          ),
                         ),
                       )
                     ],
@@ -142,9 +182,19 @@ class _EditarPerfilState extends State<EditarPerfil> {
                               TextField(
                                 controller: moderadorIndex,
                                 decoration: InputDecoration(
-                                    suffixIcon: const Icon(
-                                      Icons.close_sharp,
-                                      color: Colors.red,
+                                    suffixIcon: IconButton(
+                                      onPressed: () {
+                                        setState(() {
+                                          widget.user.moderadores.removeWhere(
+                                              (element) =>
+                                                  element ==
+                                                  moderadorIndex.text);
+                                        });
+                                      },
+                                      icon: Icon(
+                                        Icons.close_sharp,
+                                        color: Colors.red,
+                                      ),
                                     ),
                                     border: InputStyles.editDadosInput()),
                               ),

@@ -12,15 +12,10 @@ class ListEdificios extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: MediaQuery.of(context).size.height*0.25,
-      child: ListView.builder(
-        itemCount: EdificioRepository.mokados().length,
-        itemBuilder: (_, index) {
-          EdificioModel edificio = EdificioRepository.mokados()[index];
-          return CardEdificio(edificio: edificio);
-        },
-      ),
+    return Column(
+      children: EdificioRepository.mokados()
+          .map((edificio) => CardEdificio(edificio: edificio))
+          .toList(),
     );
   }
 }
@@ -31,7 +26,7 @@ class CardEdificio extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical:8),
+      padding: const EdgeInsets.symmetric(vertical: 8),
       child: Row(
         children: [
           CircleAvatar(
@@ -76,36 +71,33 @@ class ListHorarios extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: MediaQuery.of(context).size.height * 0.16,
-      child: ListView.builder(
-          itemCount: user.horarios.length,
-          itemBuilder: (_, index) {
-            Horarios hoje = user.horarios[index];
-            return Row(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                Text(
-                  hoje.dia,
-                  style: FontStyles.fino14(),
-                ),
-                Expanded(
-                  child: Container(
-                    margin: const EdgeInsets.symmetric(horizontal: 4),
-                    decoration: BoxDecoration(
-                        border: Border(
-                            bottom: BorderSide(color: Cores.cinza, width: 1))),
+    return Column(
+      children: user.horarios
+          .map((hoje) => Row(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Text(
+                    hoje.dia,
+                    style: FontStyles.fino14(),
                   ),
-                ),
-                user.horarios[index].funciona
-                    ? Text(
-                        "${hoje.abrirHorario}:00 às ${hoje.fecharHorario}:00",
-                        style: FontStyles.fino14(),
-                      )
-                    : Text("Fechado", style: FontStyles.fino14()),
-              ],
-            );
-          }),
+                  Expanded(
+                    child: Container(
+                      margin: const EdgeInsets.symmetric(horizontal: 4),
+                      decoration: BoxDecoration(
+                          border: Border(
+                              bottom:
+                                  BorderSide(color: Cores.cinza, width: 1))),
+                    ),
+                  ),
+                  hoje.funciona
+                      ? Text(
+                          "${hoje.abrirHorario}:00 às ${hoje.fecharHorario}:00",
+                          style: FontStyles.fino14(),
+                        )
+                      : Text("Fechado", style: FontStyles.fino14()),
+                ],
+              ))
+          .toList(),
     );
   }
 }

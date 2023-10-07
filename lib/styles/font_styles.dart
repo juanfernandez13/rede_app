@@ -11,6 +11,10 @@ class FontStyles {
         fontSize: 16,
         fontWeight: FontWeight.w600,
       );
+  static TextStyle grosso14() => const TextStyle(
+        fontSize: 14,
+        fontWeight: FontWeight.w600,
+      );
   static TextStyle fino16() => const TextStyle(
         fontSize: 16,
         fontWeight: FontWeight.w400,

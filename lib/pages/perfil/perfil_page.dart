@@ -29,7 +29,7 @@ class _PerfilPageState extends State<PerfilPage> {
         child: Scaffold(
       body: Column(
         children: [
-          const UserDados(),
+          UserDados(page: pageIndex,),
           Container(
             padding: const EdgeInsets.only(left: 16, right: 16, bottom: 12),
             decoration: BoxDecoration(
